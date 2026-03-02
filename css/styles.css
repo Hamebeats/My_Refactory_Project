@@ -84,6 +84,7 @@ select:focus {
     justify-content: center;
     align-items: flex-start;
     margin-top: 40px;
+    width: 500px;
 }
 
 
@@ -331,7 +332,7 @@ tbody tr:hover {
 /* The Battery section  */
 
 .battery-page {
-    min-width: auto;
+    min-width: 500px;
     margin: auto;
 }
 
