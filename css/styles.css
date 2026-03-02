@@ -341,6 +341,10 @@ tbody tr:hover {
     margin-bottom: 30px;
 }
 
+.battery1-page {
+    width: 300px;
+}
+
 /* Tabs */
 .battery-tabs {
     display: flex;
