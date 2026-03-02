@@ -1,30 +1,45 @@
-// ==============================
-// ParkEase Login - Save User Info
-// ==============================
+// ===============================
+// PARKEASE LOGIN SYSTEM
+// ===============================
 
-document.getElementById("loginForm").addEventListener("submit", function(event){
-    event.preventDefault(); // Prevent form from reloading page
+document.addEventListener("DOMContentLoaded", function () {
 
-    // Get user inputs
-    let userName = document.getElementById("userName").value.trim();
-    let password = document.getElementById("password").value;
+    let loginForm = document.getElementById("loginForm");
 
-    // Fake authentication for demo
-    // In production, check credentials on server
-    let role = "attendant"; // or "admin" based on actual login
-    
-    // Example: set admin for special user
-    if(userName === "admin") {
-        role = "admin";
-    }
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    // Save user info to localStorage
-    let user = {
-        userName: userName,
-        role: role
-    };
-    localStorage.setItem("ParkEaseUser", JSON.stringify(user));
+        let username = document.getElementById("username").value.trim();
+        let password = document.getElementById("password").value;
 
-    // Redirect to dashboard
-    window.location.href = "signOut.html";
+        // Get all registered users
+        let users = JSON.parse(localStorage.getItem("ParkEaseUsers")) || [];
+
+        // Find matching user
+        let matchedUser = null;
+
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].username === username && users[i].password === password) {
+                matchedUser = users[i];
+                break;
+            }
+        }
+
+        // If no match found
+        if (matchedUser === null) {
+            alert("Invalid username or password");
+            return;
+        }
+
+        // Save logged-in user session
+        localStorage.setItem("ParkEaseUser", JSON.stringify(matchedUser));
+
+        // Redirect based on role
+        if (matchedUser.role === "admin") {
+            window.location.href = "admin.html";
+        } else {
+            window.location.href = "dashboard.html";
+        }
+    });
+
 });
