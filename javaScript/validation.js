@@ -16,13 +16,18 @@ form.addEventListener("submit", function(event) {
     let ninNumberRegex = /^[CF][MF]\d{5}[A-Z0-9]{7}$/;
 
     let numberPlateInput = numberPlate.value.trim();
-    
-    if (!numberPlateRegex.test(numberPlateInput)){
-        message.textContent = "Enter valid plate number";
-        message.style.color = "red";
+    if (driverName) {
+        message.textContent = "67";
         return
     }
-    message.textContent = "Plate number is valid";
-    message.style.color = "green";
+    
+    // if (!numberPlateRegex.test(numberPlateInput)){
+    //     message.textContent = "Enter valid plate number";
+    //     message.style.color = "red";
+    //     return
+    // }
+    
+    // message.textContent = "Plate number is valid";
+    // message.style.color = "green";
 })
 
