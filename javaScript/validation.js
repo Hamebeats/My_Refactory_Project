@@ -16,9 +16,10 @@ form.addEventListener("submit", function(event) {
     let ninNumberRegex = /^[CF][MF]\d{5}[A-Z0-9]{7}$/;
 
     let numberPlateInput = numberPlate.value.trim();
-    if (driverName) {
-        message.textContent = "67";
-        return
+    if (driverName !== "Tendani") {
+        message.textContent = "Intruderrrrrrrrr, run for your life";
+    } else {
+        message.textContent = "Welcome, the 67 king."
     }
     
     // if (!numberPlateRegex.test(numberPlateInput)){
