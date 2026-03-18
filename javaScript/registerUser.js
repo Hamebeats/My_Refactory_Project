@@ -26,6 +26,7 @@ function registerAttendant(event) {
   };
 
   attendants.push(attendant);
+  
 
   updateTable();
 

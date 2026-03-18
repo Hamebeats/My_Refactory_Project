@@ -810,3 +810,7 @@ body .register-user {
 #attendantForm {
     max-width: 600px;
 }
+
+#registrationForm p {
+    padding-top: 0px;
+}
